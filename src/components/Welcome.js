@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import galleryImagesData from './data/gallery_images.json'
+// import galleryImagesData from '../data/gallery_images.json'
 
 const GetGalleryImages_API =
   "https://i4wyzz5aif.execute-api.us-east-1.amazonaws.com/Production/galleryImages";

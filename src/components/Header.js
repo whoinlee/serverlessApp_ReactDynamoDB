@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import menuLinksData from './data/menu_links.json'
+// import menuLinksData from '../data/menu_links.json'
 
 const GetMenuLinks_API =
   "https://i4wyzz5aif.execute-api.us-east-1.amazonaws.com/Production/menuLinks";
