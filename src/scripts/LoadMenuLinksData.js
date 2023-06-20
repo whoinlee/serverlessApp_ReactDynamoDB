@@ -1,31 +1,35 @@
 var AWS = require("aws-sdk");
-var fs = require('fs');
+var fs = require("fs");
 
 AWS.config.update({
-  region: "us-east-1"
+  region: "us-east-1",
 });
 
 console.log("Writing entries to MenuLinks table.");
 
 var dynamodb = new AWS.DynamoDB.DocumentClient();
-var menuLinksData = 
-  JSON.parse(fs.readFileSync('../components/data/menu_links.json', 'utf8'));
+var menuLinksData = JSON.parse(
+  fs.readFileSync("../data/menu_links.json", "utf8")
+);
 
-  menuLinksData.forEach(function(menuLink) {
+menuLinksData.forEach(function (menuLink) {
   var params = {
     TableName: "MenuLinks",
     Item: {
-      "class": menuLink.class,
-      "href": menuLink.href,
-      "text": menuLink.text
-    }
+      class: menuLink.class,
+      href: menuLink.href,
+      text: menuLink.text,
+    },
   };
 
-  dynamodb.put(params, function(err, data) {
+  dynamodb.put(params, function (err, data) {
     if (err)
-      console.error("Unable to load data into table for menu links",
-      menuLink.text, ". Error: ", JSON.stringify(err, null, 2))
-    else
-      console.log("Added", menuLink.text, "to table.")
+      console.error(
+        "Unable to load data into table for menu links",
+        menuLink.text,
+        ". Error: ",
+        JSON.stringify(err, null, 2)
+      );
+    else console.log("Added", menuLink.text, "to table.");
   });
 });
