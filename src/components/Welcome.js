@@ -24,8 +24,13 @@ const Welcome = () => {
     <div className="scene" id="welcome">
       <article className="content">
         <div className="gallery">
-          {galleryImagesData.map((image) => (
-            <img className={image.className} src={image.src} alt={image.alt} />
+          {galleryImagesData.map((image, index) => (
+            <img
+              key={index + image.alt}
+              className={image.className}
+              src={image.src}
+              alt={image.alt}
+            />
           ))}
         </div>
         <h1>Welcome to the Landon&nbsp;Hotel</h1>

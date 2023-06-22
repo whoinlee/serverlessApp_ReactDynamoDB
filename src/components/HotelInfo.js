@@ -78,8 +78,8 @@ const HotelInfo = () => {
             your stay comfortable, and your experience one-of-a-kind.
           </p>
           <ul>
-            {servicesData.map((service) => (
-              <li>{service.name}</li>
+            {servicesData.map((service, index) => (
+              <li key={index + service.name}>{service.name}</li>
             ))}
           </ul>
         </section>
@@ -91,8 +91,8 @@ const HotelInfo = () => {
             needs:
           </p>
           <ul>
-            {accessibilityData.map((accessibility) => (
-              <li>{accessibility.name}</li>
+            {accessibilityData.map((accessibility, index) => (
+              <li key={index + accessibility.name}>{accessibility.name}</li>
             ))}
           </ul>
         </section>
